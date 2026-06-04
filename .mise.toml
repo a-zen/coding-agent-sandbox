@@ -1,0 +1,6 @@
+
+[tasks.build]
+run = "docker build -t coding-agent-sandbox ."
+
+[tasks.run]
+run = "docker run -ti --rm coding-agent-sandbox"
