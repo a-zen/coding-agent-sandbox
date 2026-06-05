@@ -14,3 +14,6 @@ USER ubuntu
 RUN curl -fsSL https://antigravity.google/cli/install.sh | bash
 RUN curl -fsSL https://claude.ai/install.sh | bash
 RUN echo 'eval "$(mise activate bash)"' >> ~/.bashrc
+RUN rm ~/.claude.json && ln -s ~/.claude/.claude.json ~/.claude.json
+
+WORKDIR /workdir
