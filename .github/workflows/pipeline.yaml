@@ -29,17 +29,34 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
+      - uses: jdx/mise-action@dba19683ed58901619b14f395a24841710cb4925 # v4.1.0
 
       - run: mise run actions:lint
         shell: bash
 
-      # - name: Set up Docker Buildx
-      #   uses: docker/setup-buildx-action@v4
+      - uses: docker/setup-buildx-action@d7f5e7f509e45cec5c76c4d5afdd7de93d0b3df5 # v4.1.0
+        name: Set up Docker Buildx
 
-      - name: Build an image from Dockerfile
-        run: |
-          mise run build:ghcache
+      - name: Log in to Docker Hub
+        uses: docker/login-action@650006c6eb7dba73a995cc03b0b2d7f5ca915bee # v4.2.0
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@80c7e94dd9b9319bd5eb7a0e0fe9291e23a2a2e9 # v6.1.0
+        with:
+          images: ${{ env.IMAGE_TAG }}
+
+      - uses: docker/build-push-action@f9f3042f7e2789586610d6e8b85c8f03e5195baf # v7.2.0
+        name: Build and push
+        with:
+          push: true
+          tags: ${{ env.IMAGE_TAG }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
