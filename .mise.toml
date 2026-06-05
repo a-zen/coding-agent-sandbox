@@ -1,7 +1,13 @@
 
 [tasks.build]
+description = "Builds the docker container"
 run = "docker build -t coding-agent-sandbox ."
 
 [tasks.run]
+description = "Runs the docker container for manual testing"
 run = "docker run -ti -v ~/.config/gemini:/home/ubuntu/.gemini --rm coding-agent-sandbox"
 
+[tasks.docs]
+alias = "doc"
+description = "Update tasks in README"
+run = "mise generate task-docs -i -o README.md"

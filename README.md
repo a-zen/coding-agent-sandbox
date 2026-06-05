@@ -32,3 +32,27 @@ agent-sandbox() (
 
 which adds my gemini setup (custom dir), mise caches and the current working
 directory.
+
+## mise tasks
+
+<!-- mise-tasks -->
+## `build`
+
+- **Usage**: `build`
+
+Builds the docker container
+
+## `docs`
+
+- **Usage**: `docs`
+- **Aliases**: `doc`
+
+Update tasks in README
+
+## `run`
+
+- **Usage**: `run`
+
+Runs the docker container for manual testing
+<!-- /mise-tasks -->
+
