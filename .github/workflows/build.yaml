@@ -3,7 +3,7 @@ name: build
 on:
   push:
     branches:
-      - master
+      - main
 
 env:
   IMAGE_TAG: docker.io/roude/coding-agent-sandbox:latest
