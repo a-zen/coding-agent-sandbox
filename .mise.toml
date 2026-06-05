@@ -2,6 +2,10 @@
 ghalint = "1.5.5"
 pinact = "4.0.0"
 
+[tasks."build:ghcache"]
+description = "Builds the docker container"
+run = "docker build --cache-from type=gha --cache-to type=gha,mode=max -t ${IMAGE_TAG:-coding-agent-sandbox} . j"
+
 [tasks.build]
 description = "Builds the docker container"
 run = "docker build -t ${IMAGE_TAG:-coding-agent-sandbox} ."
