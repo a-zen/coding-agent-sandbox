@@ -45,9 +45,21 @@ every start be sure to also place this file in the container.
 ## mise tasks
 
 <!-- mise-tasks -->
+## `actions:lint`
+
+- **Usage**: `actions:lint`
+
+Lint GitHub Actions workflows and actions with ghalint
+
 ## `build`
 
 - **Usage**: `build`
+
+Builds the docker container
+
+## `build:ghcache`
+
+- **Usage**: `build:ghcache`
 
 Builds the docker container
 
