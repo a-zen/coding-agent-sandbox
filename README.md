@@ -34,6 +34,14 @@ agent-sandbox() (
 which adds my gemini and claude setup (custom dir), mise caches and the current working
 directory.
 
+### Claude
+
+claude code stores settings in two places. The `.claude`  directory and the
+`~/.claude.json` file. The later one is important and tracks the initial
+onboarding as well as the authentication. To avoid getting reprompt for this on
+every start be sure to also place this file in the container.
+
+
 ## mise tasks
 
 <!-- mise-tasks -->
