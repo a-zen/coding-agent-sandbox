@@ -22,3 +22,14 @@ run = "mise generate task-docs -i -o README.md"
 [tasks."actions:lint"]
 description = 'Lint GitHub Actions workflows and actions with ghalint'
 run = ["ghalint run", "ghalint run-action"]
+
+[tasks."renovate:local"]
+run = """
+docker run --rm \
+  --env-file .github_token \
+  -e RENOVATE_PLATFORM="local" \
+  -e LOG_LEVEL="debug" \
+  -v "$(pwd):/usr/src/app" \
+  -w /usr/src/app \
+  renovate/renovate:latest
+"""
