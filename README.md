@@ -21,6 +21,7 @@ I have a shell function to start the docker container with pre-defined mounts:
 agent-sandbox() (
   docker run -ti --rm \
     -v ~/.config/gemini:/home/ubuntu/.gemini \
+    -v ~/.config/claude:/home/ubuntu/.claude \
     -v ~/.cache/mise:/home/ubuntu/.cache/mise \
     -v ~/.config/mise:/home/ubuntu/.config/mise \
     -v ~/.local/share/mise:/home/ubuntu/.local/share/mise \
@@ -30,7 +31,7 @@ agent-sandbox() (
 )
 ````
 
-which adds my gemini setup (custom dir), mise caches and the current working
+which adds my gemini and claude setup (custom dir), mise caches and the current working
 directory.
 
 ## mise tasks
@@ -55,4 +56,3 @@ Update tasks in README
 
 Runs the docker container for manual testing
 <!-- /mise-tasks -->
-
