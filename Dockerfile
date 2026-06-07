@@ -3,17 +3,7 @@ FROM ubuntu:resolute-20260421@sha256:f3d28607ddd78734bb7f71f117f3c6706c666b8b76c
 RUN apt-get update \
     && apt-get full-upgrade -y \
     && apt-get install -y --no-install-recommends \
-        curl=8.18.* \
-        git=1:2.53.* \
-        jq=1.8.1-* \
-        nodejs=22.22.* \
-        npm=9.2.* \
-        python3=3.14.* \
-        ripgrep=15.1.* \
-        tmux=3.6a-* \
-        vim=2:9.1.* \
-        wget=1.25.* \
-        zsh=5.9-* \
+        curl git jq nodejs npm python3 ripgrep tmux vim wget zsh \
     && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g context-mode@1.0.162 @anthropic-ai/claude-code@2.1.162
