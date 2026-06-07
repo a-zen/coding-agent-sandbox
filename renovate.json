@@ -2,5 +2,23 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:best-practices"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-z-]+) depName=(?<depName>[^\\s]+)\\nENV \\w+=(?<currentValue>[^\\s]+)"
+      ]
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": [
+        "npm install -g (?<depName>[a-zA-Z0-9][a-zA-Z0-9._-]*)@(?<currentValue>[0-9][^\\s]*)",
+        "npm install -g[^\\n]+ (?<depName>@[a-zA-Z0-9._-]+/[a-zA-Z0-9._-]+)@(?<currentValue>[0-9][^\\s]*)"
+      ],
+      "datasourceTemplate": "npm"
+    }
   ]
 }
