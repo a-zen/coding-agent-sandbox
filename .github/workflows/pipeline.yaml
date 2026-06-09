@@ -8,6 +8,10 @@ on:
 env:
   IMAGE_TAG: docker.io/roude/coding-agent-sandbox:latest
 
+concurrency:
+  group: deployment
+  cancel-in-progress: false
+
 permissions:
   contents: read
 
