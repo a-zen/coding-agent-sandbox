@@ -10,7 +10,7 @@ RUN npm install -g context-mode@1.0.168 @anthropic-ai/claude-code@2.1.198
 
 # Renovate tracking for GitHub releases (mise)
 # renovate: datasource=github-releases depName=jdx/mise
-ENV MISE_VERSION=v2026.6.14
+ENV MISE_VERSION=v2026.7.0
 RUN curl https://mise.run | MISE_INSTALL_PATH=/usr/bin/mise MISE_VERSION=$MISE_VERSION sh
 
 RUN curl -fsSL https://antigravity.google/cli/install.sh | bash -s -- -d /usr/bin
