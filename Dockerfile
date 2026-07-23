@@ -6,7 +6,7 @@ RUN apt-get update \
         curl git jq nodejs npm python3 ripgrep tmux vim wget zsh \
     && rm -rf /var/lib/apt/lists/*
 
-RUN npm install -g context-mode@1.0.169 @anthropic-ai/claude-code@2.1.215
+RUN npm install -g context-mode@1.0.169 @anthropic-ai/claude-code@2.1.216
 
 # Renovate tracking for GitHub releases (mise)
 # renovate: datasource=github-releases depName=jdx/mise
