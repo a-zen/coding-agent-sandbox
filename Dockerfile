@@ -15,6 +15,8 @@ RUN curl https://mise.run | MISE_INSTALL_PATH=/usr/bin/mise MISE_VERSION=$MISE_V
 
 RUN curl -fsSL https://antigravity.google/cli/install.sh | bash -s -- -d /usr/bin
 
+RUN curl -LsSf https://astral.sh/uv/install.sh | UV_INSTALL_DIR=/usr/bin sh
+
 USER ubuntu
 
 RUN echo 'eval "$(mise activate bash)"' >> ~/.bashrc
