@@ -4,15 +4,15 @@ pinact = "4.1.1"
 
 [tasks."build:ghcache"]
 description = "Builds the docker container"
-run = "docker build --cache-from type=gha --cache-to type=gha,mode=max -t ${IMAGE_TAG:-coding-agent-sandbox} ."
+run = "podman build --cache-from type=gha --cache-to type=gha,mode=max -t ${IMAGE_TAG:-docker.io/roude/coding-agent-sandbox:latest} ."
 
 [tasks.build]
 description = "Builds the docker container"
-run = "docker build -t ${IMAGE_TAG:-coding-agent-sandbox} ."
+run = "podman build -t ${IMAGE_TAG:-docker.io/roude/coding-agent-sandbox:latest} ."
 
 [tasks.run]
 description = "Runs the docker container for manual testing"
-run = "docker run -ti -v ~/.config/gemini:/home/ubuntu/.gemini --rm coding-agent-sandbox"
+run = "podman run -ti -v ~/.config/gemini:/home/ubuntu/.gemini --rm coding-agent-sandbox"
 
 [tasks.docs]
 alias = "doc"
