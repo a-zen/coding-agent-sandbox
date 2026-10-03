@@ -13,7 +13,7 @@ RUN node /usr/share/nodejs/npm/bin/npm-cli.js install -g \
 
 # Renovate tracking for GitHub releases (mise)
 # renovate: datasource=github-releases depName=jdx/mise
-ENV MISE_VERSION=v2026.10.0
+ENV MISE_VERSION=v2026.10.1
 RUN curl https://mise.run | MISE_INSTALL_PATH=/usr/bin/mise MISE_VERSION=$MISE_VERSION sh
 
 RUN curl -fsSL https://antigravity.google/cli/install.sh | bash -s -- -d /usr/bin
