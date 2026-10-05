@@ -1,4 +1,4 @@
-FROM ubuntu:resolute-20260927@sha256:98909b34726c3733c7665e0a583aab4eff720863dacdd79203e53c27c53f1400
+FROM ubuntu:resolute-20260927@sha256:f144425ff09be612d6d9ad965196e9cdc23dae1f42110a8a11a3e9a8198759f7
 
 RUN apt-get update \
     && apt-get full-upgrade -y \
