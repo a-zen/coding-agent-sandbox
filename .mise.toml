@@ -1,6 +1,6 @@
 [tools]
 ghalint = "1.5.6"
-pinact = "5.0.0"
+pinact = "5.0.1"
 
 [tasks."build:ghcache"]
 description = "Builds the docker container"
